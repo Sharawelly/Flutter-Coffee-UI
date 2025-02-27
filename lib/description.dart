@@ -29,6 +29,7 @@ class Description extends StatelessWidget{
                 color: Color(0x52000000)
             ),
           ),
+          // Adding read me
         ],
       ),
     );
