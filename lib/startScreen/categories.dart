@@ -45,7 +45,7 @@ class _CategoriesState extends State<Categories>{
                           vertical: 0,
                         ),
                         decoration: BoxDecoration(
-                          color: selectedIndex == index ? Colors.brown : Colors.white,
+                          color: selectedIndex == index ? Color.fromARGB(255, 198, 124, 78) : Colors.white,
                           borderRadius: BorderRadius.circular(5)
                         ),
                         child: Center(
