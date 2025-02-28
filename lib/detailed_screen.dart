@@ -14,22 +14,26 @@ class DetailedScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     CoffeeItem test = coffeeItemsData[1];
-    return  Column(
-      children: [
-        CoffeeMainDetails(
-          image: test.image,
-          name: test.name,
-          numOfRatingPeople: test.numOfRatingPeople,
-          rating: test.rating,
-          temperature: test.temperature,
-        ),
-        Description(
-          description: test.description,
-        ),
-        CoffeeSize(),
-        Spacer(),
-        BuyCoffee(price: test.price),
-      ],
+    return  SingleChildScrollView(
+      child: Column(
+        children: [
+          CoffeeMainDetails(
+            image: test.image,
+            name: test.name,
+            numOfRatingPeople: test.numOfRatingPeople,
+            rating: test.rating,
+            temperature: test.temperature,
+          ),
+          Description(
+            description: test.description,
+          ),
+          CoffeeSize(),
+          SizedBox(
+            height: 15,
+          ),
+          BuyCoffee(price: test.price),
+        ],
+      ),
     );
 }
 
