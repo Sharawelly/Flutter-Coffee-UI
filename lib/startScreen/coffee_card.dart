@@ -113,7 +113,7 @@ class CoffeeCard extends StatelessWidget {
                         height: 37,
                         width: 37,
                         decoration: BoxDecoration(
-                          color: Colors.brown, // Background color
+                          color: Color.fromARGB(255, 198, 124, 78), // Background color
                           borderRadius:
                               BorderRadius.circular(12), // Rounded square
                         ),
