@@ -4,8 +4,8 @@ import 'package:coffee_app/model/coffee_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'detailed_screen.dart';
-import 'detailed_screen_app_bar.dart';
+import 'detailedScreen/detailed_screen.dart';
+import 'detailedScreen/detailed_screen_app_bar.dart';
 import 'startScreen/my_home.dart';
 
 class CoffeeAPP extends StatefulWidget {
