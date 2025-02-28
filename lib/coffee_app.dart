@@ -20,11 +20,29 @@ class CoffeeAPP extends StatefulWidget {
 }
 
 class _CoffeeAPPState extends State<CoffeeAPP> {
-  String currentScreen = 'signup-screen';
+  String currentScreen = 'login-screen';
   final List<CoffeeItem> coffeeItems = coffeeItemsData;
   int index = 0;
 
-  void switchScreen() {
+  void switchScreenToLogin() {
+    setState(() {
+      currentScreen = 'login-screen';
+    });
+  }
+
+  void switchScreenToSignup() {
+    setState(() {
+      currentScreen = 'signup-screen';
+    });
+  }
+
+  void switchScreenToStartScreen() {
+    setState(() {
+      currentScreen = 'start-screen';
+    });
+  }
+
+  void switchScreenToDetailed() {
     setState(() {
       currentScreen = 'detailed-screen';
     });
@@ -37,25 +55,32 @@ class _CoffeeAPPState extends State<CoffeeAPP> {
     final Color color;
     if(currentScreen == 'login-screen'){
       applicationBar = null;
-      appBody = LoginScreen();
+      appBody = LoginScreen(
+        switchToSignupScreen: switchScreenToSignup,
+        switchToStartScreen: switchScreenToStartScreen,
+      );
       color = Color(0xFF2CC5D3);
     }
     else if(currentScreen == 'signup-screen'){
       applicationBar = null;
-      appBody = SignupScreen();
+      appBody = SignupScreen(
+        switchToLoginScreen: switchScreenToLogin,
+      );
       color = Color(0xFF2CC5D3);
     }
     else if(currentScreen == 'start-screen'){
       applicationBar = null;
       appBody = MyHome(
         coffeeItems: coffeeItems,
-        switchScreen: switchScreen,
+        switchScreen: switchScreenToDetailed,
       );
       color = Colors.black;
     }
     else {
-      applicationBar = DetailedScreenAppBar();
-      appBody = DetailedScreen(coffeeItem: coffeeItems[index]);
+      applicationBar = DetailedScreenAppBar(
+        switchToStartScreen: switchScreenToStartScreen,
+      );
+      appBody = DetailedScreen(switchToStartScreen: switchScreenToStartScreen, coffeeItem: coffeeItems[index]);
       color = Color.fromARGB(255, 249, 249, 249);
     }
     return Scaffold(

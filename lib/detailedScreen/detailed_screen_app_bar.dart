@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-
 // we implements PreferredSizeWidget because appBar in Scaffold needs this type
 class DetailedScreenAppBar extends StatelessWidget
     implements PreferredSizeWidget {
-  const DetailedScreenAppBar({super.key});
+  const DetailedScreenAppBar({super.key, required this.switchToStartScreen});
+
+  final void Function() switchToStartScreen;
 
   @override
   Widget build(BuildContext context) {
-
     // ✔ Used leading: for the back arrow → Ensures it's on the left.
     // ✔ Used actions: for the heart icon → Ensures it's on the right.
     // ✔ Added centerTitle: true → Ensures "Detail" is centered on iOS & Android.
@@ -18,26 +18,28 @@ class DetailedScreenAppBar extends StatelessWidget
       ),
       child: AppBar(
         backgroundColor: Colors.white,
-        centerTitle: true, // Ensures "Detail" is centered
-        title: Text('Detail',
-
-        ), // Title in the center
+        centerTitle: true,
+        // Ensures "Detail" is centered
+        title: Text(
+          'Detail',
+        ),
+        // Title in the center
         leading: IconButton(
-          onPressed: () {}, // Handle back action
+          onPressed: switchToStartScreen, // Handle back action
           icon: Icon(Icons.arrow_back_ios),
-        ), // Places arrow icon on the left
+        ),
+        // Places arrow icon on the left
         actions: [
           IconButton(
-            onPressed: () {}, // Handle favorite action
-            icon: Image.asset('assets/images/heart.png',
-              height: 35,
-              width: 35,
-            )
-          ), // Places heart icon on the right
+              onPressed: () {}, // Handle favorite action
+              icon: Image.asset(
+                'assets/images/heart.png',
+                height: 35,
+                width: 35,
+              )), // Places heart icon on the right
         ],
       ),
     );
-
   }
 
   // This overrides the preferredSize property, which is required when implementing PreferredSizeWidget,

@@ -9,29 +9,29 @@ import 'coffee_size.dart';
 import '../data/coffe_items_data.dart';
 
 class DetailedScreen extends StatelessWidget{
-  const DetailedScreen({required this.coffeeItem, super.key});
+  const DetailedScreen({required this.coffeeItem, super.key, required this.switchToStartScreen});
   final CoffeeItem coffeeItem;
+  final void Function() switchToStartScreen;
   @override
   Widget build(BuildContext context) {
-    CoffeeItem test = coffeeItemsData[1];
     return  SingleChildScrollView(
       child: Column(
         children: [
           CoffeeMainDetails(
-            image: test.image,
-            name: test.name,
-            numOfRatingPeople: test.numOfRatingPeople,
-            rating: test.rating,
-            temperature: test.temperature,
+            image: coffeeItem.image,
+            name: coffeeItem.name,
+            numOfRatingPeople: coffeeItem.numOfRatingPeople,
+            rating: coffeeItem.rating,
+            temperature: coffeeItem.temperature,
           ),
           Description(
-            description: test.description,
+            description: coffeeItem.description,
           ),
           CoffeeSize(),
           SizedBox(
             height: 15,
           ),
-          BuyCoffee(price: test.price),
+          BuyCoffee(price: coffeeItem.price),
         ],
       ),
     );
