@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginButtonSection extends StatelessWidget {
+  const LoginButtonSection({super.key, required this.switchToSignupScreen, required this.switchToStartScreen});
+  final void Function() switchToSignupScreen;
+  final void Function() switchToStartScreen;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -14,7 +17,7 @@ class LoginButtonSection extends StatelessWidget {
             child: Column(
               children: [
                 TextButton(
-                  onPressed: null,
+                  onPressed: switchToStartScreen,
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.blue, // Button background color
                     minimumSize: Size(double.infinity, 55), // Adjust the button width and height
@@ -34,10 +37,13 @@ class LoginButtonSection extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text('Don\'t have an account?   '),
-                    Text('Sign Up',
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 49, 195, 253),
-                    ),)
+                    GestureDetector(
+                      onTap: switchToSignupScreen,
+                      child: Text('Sign Up',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 49, 195, 253),
+                      ),),
+                    )
                   ],
                 )
               ],

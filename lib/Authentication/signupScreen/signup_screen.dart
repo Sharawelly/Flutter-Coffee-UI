@@ -6,6 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatelessWidget{
+  const SignupScreen({super.key, required this.switchToLoginScreen});
+  final void Function() switchToLoginScreen;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,7 +27,9 @@ class SignupScreen extends StatelessWidget{
           children: [
             SignupHeader(),
             SignupFieldsSection(),
-            SignupButtonSection(),
+            SignupButtonSection(
+              switchToLoginScreen: switchToLoginScreen,
+            ),
           ],
         ),
       ),

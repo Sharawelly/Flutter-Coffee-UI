@@ -6,6 +6,9 @@ import 'login_fields_section.dart';
 import 'login_header.dart';
 
 class LoginScreen extends StatelessWidget{
+  const LoginScreen({super.key, required this.switchToSignupScreen, required this.switchToStartScreen});
+  final void Function() switchToSignupScreen;
+  final void Function() switchToStartScreen;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,7 +28,10 @@ class LoginScreen extends StatelessWidget{
           children: [
             LoginHeader(),
             LoginFieldsSection(),
-            LoginButtonSection(),
+            LoginButtonSection(
+              switchToStartScreen: switchToStartScreen,
+              switchToSignupScreen: switchToSignupScreen,
+            ),
           ],
         ),
       ),
