@@ -17,7 +17,7 @@ class DetailedScreenAppBar extends StatelessWidget
         horizontal: 25,
       ),
       child: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromARGB(255, 249, 249, 249),
         centerTitle: true,
         // Ensures "Detail" is centered
         title: Text(
