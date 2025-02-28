@@ -48,7 +48,8 @@ class Search extends StatelessWidget {
             width: 50,
             height: 50,
             decoration: BoxDecoration(
-                color: Colors.orange, borderRadius: BorderRadius.circular(12)),
+                color: Color.fromARGB(255, 198, 124, 78),
+                borderRadius: BorderRadius.circular(12)),
             child: IconButton(
               onPressed: null,
               icon: Icon(
