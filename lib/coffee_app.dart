@@ -20,7 +20,7 @@ class CoffeeAPP extends StatefulWidget {
 }
 
 class _CoffeeAPPState extends State<CoffeeAPP> {
-  String currentScreen = 'start-screen';
+  String currentScreen = 'login-screen';
   final List<CoffeeItem> coffeeItems = coffeeItemsData;
   int index = 0;
 
